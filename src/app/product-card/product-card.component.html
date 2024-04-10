@@ -6,7 +6,11 @@
         <img
             [attr.src]= "product.image"
             [alt]= "product.name"
-            [style.border]="'1px solid black'">
+            [style] ="product.unitAvailable < 1 ? productImageStyle : '' "
+            >
+            <!--[class]="'border-btn'"-->
+            
+            
     </div>
     <div class="product--info">
         <h1 class="product--info__title">{{product.name}}</h1>
