@@ -4,9 +4,11 @@
             [src]= "product.image"
             [alt]= "product.name"> -->
         <img
+            (mouseenter)="onMouseEnter()"
+            (mouseleave)="onMouseLeave()"
             [attr.src]= "product.image"
             [alt]= "product.name"
-            [style] ="product.unitAvailable < 1 ? productImageStyle : '' "
+            [style] ="productImageStyle"
             >
             <!--[class]="'border-btn'"-->
             
@@ -17,7 +19,43 @@
         <p class="product--info__description"> {{product.description}}</p>
     </div>
     <div class="product--actions">
-        <button [disabled]="!(product.unitAvailable > 1)" class="product--actions__btn buy">BUY</button>
-        <button class="product--actions__btn add">+ CART</button>
+        <button 
+            (click)="buyProduct()"
+            [disabled]="!(product.unitAvailable > 1)" 
+            class="product--actions__btn buy"
+        >   
+            BUY
+        </button>
+        <button
+            (click)="addToCart()"
+            class="product--actions__btn add"
+        >   
+            + CART
+        </button>
     </div>
 </div>
+
+<form 
+    [style.display]="!formState ? 'none': 'flex'" 
+    class="form"
+    [formGroup]="orderForm"
+    > <!--formGroup para two-way data binding sin ngModel -->
+    <h2>Datos de compra</h2>
+    <label for="address">Direccion</label>
+    <input 
+        formControlName="address"
+        type="text" 
+        name="address" 
+        id="address"
+    >
+    <label for="postalCode">Codigo Postal</label>
+    <input 
+        formControlName="postalCode"
+        type="number" 
+        name="postalCode" 
+        id="postalCode"
+    >
+    <div class="actions">
+        <button (click)="orderProduct()">ORDER</button>
+    </div>
+</form>
