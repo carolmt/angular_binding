@@ -15,8 +15,22 @@
             
     </div>
     <div class="product--info">
-        <h1 class="product--info__title">{{product.name}}</h1>
+        <h1 class="product--info__title">{{product.name | uppercase}}</h1>
+        <h3>{{product.date | date:"dd, MMM, yyyy 'at' hh:mm a"}}</h3>
+
+
+        <ng-container [ngSwitch]="product.category">
+            <p *ngSwitchCase="'technology'" style="color: red">{{product.category}}</p>
+            <p *ngSwitchCase="'cosmetics'" style="color: blue">{{product.category}}</p>
+            <p *ngSwitchCase="'home'" style="color: green">{{product.category}}</p>
+            <p *ngSwitchDefault>{{product.category}}</p>
+        </ng-container>
+
+        
         <p class="product--info__description"> {{product.description}}</p>
+        <div class="product--info__price">
+            <h1>{{product.price | currency: 'EUR' : 'symbol-narrow' }}</h1>
+        </div>
     </div>
     <div class="product--actions">
         <button 

@@ -1,20 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, Input} from '@angular/core';
 import {ReactiveFormsModule, FormControl, FormGroup } from '@angular/forms';
+import { UpperCasePipe, DatePipe, CurrencyPipe, CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, UpperCasePipe, DatePipe, CurrencyPipe, CommonModule],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.css'
 })
 export class ProductCardComponent {
-  product = {
-    image: 'https://images-eu.ssl-images-amazon.com/images/I/617Zkh+WY8S._SLDPMOBCAROUSELAUTOCROP288221_MCnd_AC_SR462,693_.jpg',
-    name: 'Awesome Metal Salad',
-    description: 'The Football Is Good For Training And Recreational Purposes',
-    unitAvailable: 10,
-  }
+  @Input() product : any
 
   productImageStyle = {
     border: '1px solid black',

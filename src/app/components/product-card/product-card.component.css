@@ -1,0 +1,103 @@
+.product {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 12px;
+    border: 1px solid black;
+    padding: 18px;
+    width: 350px;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+
+    .product--image {
+        padding: 18px 0px 0;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        img {
+            width: calc(100% - 32px);
+            border-radius: 12px;
+            object-fit: cover;
+            height: 300px;
+        }
+    }
+
+    .product--info{
+        padding: 0 18px;
+
+        .description {
+            text-align: justify;    
+        } 
+    }
+
+    .product--price {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        h1 {
+            margin: 0 0 20px 0;
+        }
+    }
+
+
+.product--actions {
+    margin: 10px 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+
+.product--actions.buy {
+    background: yellow;
+    .hover {
+        background: orange;
+        color: white;
+    } 
+}
+.product--actions.add {
+    background: greenyellow;
+
+      .hover {
+        background: green;
+        color: white;
+      }
+}
+
+}
+
+}
+
+
+.border-btn {
+    border: 1px solid black;
+}
+
+.form {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+
+    label {
+        margin-top: 12px;
+    }
+
+    input {
+        margin-top: 5px;
+    }
+
+    .actions {
+        margin-top: 18px;
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+            margin-left: 10px;
+            border: none;
+            height: 50px;
+            width: 100px;
+            cursor: pointer;
+            transition: ease-in-out 0.3s;
+        }
+    }
+}

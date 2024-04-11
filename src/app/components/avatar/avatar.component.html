@@ -1,0 +1,6 @@
+<img 
+class="avatar"
+[ngClass]="userInfo.role === 'ADMIN' ? 'admin' : userInfo.role === 'SALES' ? 'sales': ''"
+[src]="userInfo.image"
+[ngStyle]="{'border': userInfo.role === 'ADMIN' ? '2px solid cyan' : '2px solid yellow'}"
+>
